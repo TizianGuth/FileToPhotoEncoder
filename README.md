@@ -1,6 +1,6 @@
 # FileToPhotoEncoder
 
-My little attempt to recreate [YouTube Infinite-Storage-Glitch](https://github.com/DvorakDwarf/Infinite-Storage-Glitch), just for services that offer compressionless unlimted image storage.
+My little attempt to recreate something like [YouTube Infinite-Storage-Glitch](https://github.com/DvorakDwarf/Infinite-Storage-Glitch) myself, just for services that offer compressionless unlimted image storage, like the new Amzon Photos service for Prime customers.
 
 # How to use
 Download latest release, unzip, win+r "shell:sendto", then create a link to the DecodeFile.exe and EncodeFile.exe.
