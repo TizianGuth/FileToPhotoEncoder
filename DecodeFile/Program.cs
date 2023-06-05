@@ -59,7 +59,10 @@ namespace DecodeFile
                 // Get the files original extension 
                 fileExtension = Encoding.ASCII.GetString(Convert.FromBase64String(pathDecoded)).Split('.').Last();
 
-                // decode the from the image read string of bytes(base64) to (the original) binary
+                // Remove empty space ('?')
+                fileEncoded = fileEncoded.Replace(@"?", string.Empty);
+
+                // Decode the from the image read string of bytes(base64) to (the original) binary
                 byte[] fileBytes = Convert.FromBase64String(fileEncoded);
 
                 // Write decoded bytes to drive
