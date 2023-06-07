@@ -30,7 +30,9 @@ namespace EncodeFile
                 {
                     // convert file path/binary data to base64
                     string name = Convert.ToBase64String(Encoding.ASCII.GetBytes(arg));
-                    enconded = Encoding.ASCII.GetBytes(name + Convert.ToBase64String(File.ReadAllBytes(arg)));
+                    string file = Convert.ToBase64String(File.ReadAllBytes(arg));
+
+                    enconded = Encoding.ASCII.GetBytes(name + file);
 
                     // we devide by 3 because each pixel has RGB
                     // Sqrt maximises PNGs width/height limitations
@@ -53,6 +55,14 @@ namespace EncodeFile
                         if(index+2<enconded.Length)
                         {
                             color = new int[3] { enconded[index], enconded[index + 1], enconded[index + 2] };
+                        }
+                        else if (index + 1 < enconded.Length)
+                        {
+                            color = new int[3] { enconded[index], enconded[index + 1], 255 };
+                        }
+                        else if (index < enconded.Length)
+                        {
+                            color = new int[3] { enconded[index], 255, 255 };
                         }
                         dbm.SetPixel(x, y, Color.FromArgb(255, color[0], color[1], color[2]));
                     }

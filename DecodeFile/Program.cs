@@ -46,14 +46,12 @@ namespace DecodeFile
                     }
                     dbm.Dispose();
 
-                    Console.WriteLine(allData.Length);
-
                     // R + G * 255 = pathLength
                     int pathLength = allData[GetIndex(dbm.Width - 1, dbm.Height - 1, dbm.Width)] + allData[GetIndex(dbm.Width - 1, dbm.Height - 1, dbm.Width) + 1] * 255;
 
                     // slice then decode byte array 
                     pathDecoded = new string(Encoding.ASCII.GetString(allData[0..(pathLength)]).ToCharArray());
-                    fileEncoded = new string(Encoding.ASCII.GetString(allData[pathLength..(allData.Length - 3)]).ToCharArray());
+                    fileEncoded = new string(Encoding.ASCII.GetString(allData[(pathLength)..(allData.Length - 3)]).ToCharArray());
 
                 }
                 // Get the files original extension 

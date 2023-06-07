@@ -47,7 +47,7 @@ public class DirectBitmap : IDisposable
 
         Bits = bytes;// new Int32[bmp.Width * bmp.Height];
         BitsHandle = GCHandle.Alloc(Bits, GCHandleType.Pinned);
-        Bitmap = new Bitmap(bmp.Width, bmp.Height, bmp.Width * 4, PixelFormat.Format24bppRgb, BitsHandle.AddrOfPinnedObject());
+        Bitmap = new Bitmap(bmp.Width, bmp.Height, bmp.Width * 4, PixelFormat.Format32bppPArgb, BitsHandle.AddrOfPinnedObject());
     }
 
     public void SetPixel(int x, int y, Color color)
